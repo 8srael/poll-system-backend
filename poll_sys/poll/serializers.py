@@ -11,13 +11,15 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {'write_only': True}, # password is write only
             'is_staff': {'read_only': True},  # is_staff is read only
-            'is_superuser': {'read_only': True}, # is_superuser is read only
             'date_joined': {'read_only': True} # date_joined is read only
         }
 
     def create(self, validated_data):
-        """Créer un utilisateur avec un mot de passe crypté"""
-        user = User.objects.create_user(**validated_data)
+        """Create a new user"""
+        if validated_data.get('is_superuser'):
+            user = User.objects.create_superuser(**validated_data)
+        else:
+            user = User.objects.create_user(**validated_data)
         return user
     
 class OptionSerializer(serializers.ModelSerializer):
@@ -28,10 +30,11 @@ class OptionSerializer(serializers.ModelSerializer):
 
 class PollSerializer(serializers.ModelSerializer):
     options = OptionSerializer(many=True, read_only=True, required=False)
+    created_by = UserSerializer(read_only=True)
 
     class Meta:
         model = Poll
-        fields = ['id', 'title', 'description', 'is_active', 'created_at', 'expires_at', 'options']
+        fields = ['id', 'title', 'description', 'is_active', 'created_by', 'created_at', 'expires_at', 'options']
         
     # method to customize the representation of the poll. It's called when the poll is serialized
     def to_representation(self, instance):

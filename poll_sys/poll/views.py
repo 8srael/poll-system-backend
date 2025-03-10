@@ -1,5 +1,5 @@
 from rest_framework import viewsets, status, serializers
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from django.contrib.auth.models import User
 from .models import Poll, Option
 from .serializers import UserSerializer, PollSerializer, OptionSerializer, VoteSerializer
@@ -19,6 +19,17 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAdminUser]
+    
+    
+    
+    @swagger_auto_schema(
+        operation_description="Retrieve all users created by superusers.",
+        operation_summary="Retrieve all users.",
+        responses={200: UserSerializer(many=True)}
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
     
     
     @swagger_auto_schema(
@@ -31,11 +42,11 @@ class UserViewSet(viewsets.ModelViewSet):
         return super().create(request, *args, **kwargs)
     
 
-    def get_permissions(self):
-        """Allows anyone to register and only superusers to view/edit users"""
-        if self.action == 'create':
-            return [AllowAny()]
-        return [IsSuperUser()]
+    # def get_permissions(self):
+    #     """Allows anyone to register and only superusers to view/edit users"""
+    #     if self.action == 'create':
+    #         return [AllowAny()]
+    #     return [IsAdminUser()]
     
 
 class PollViewSet(viewsets.ModelViewSet):

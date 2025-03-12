@@ -61,6 +61,7 @@ The primary objectives of this backend system are:
 ```bash
 git clone https://github.com/your-username/online-poll-system.git
 cd online-poll-system
+```
 
 3️⃣ Create Virtual Environment & Install Dependencies
 
@@ -69,6 +70,7 @@ python -m venv venv
 source venv/bin/activate  # Mac/Linux  
 venv\Scripts\activate    # Windows  
 pip install -r requirements.txt
+```
 
 4️⃣ Set Up Environment Variables
 
@@ -82,6 +84,7 @@ DATABASE_USER=your_db_user
 DATABASE_PASSWORD=your_db_password
 DATABASE_HOST= your_db_host
 DATABASE_PORT=your_db_port
+```
 
 5️⃣ Apply Migrations, create a superuser and run the server
 
@@ -89,12 +92,13 @@ DATABASE_PORT=your_db_port
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
+```
 
-The API will be accessible at: 📍 ```bash http://127.0.0.1:8000/api/
+The API will be accessible at: 📍 ```bash http://127.0.0.1:8000/api/```
 
 ## 📜 API Documentation
 
-The API documentation is available at: ```bash 📍 http://127.0.0.1:8000/api/docs/
+The API documentation is available at: ```bash 📍 http://127.0.0.1:8000/api/docs/```
 
 
 ## Author

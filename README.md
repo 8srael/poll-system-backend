@@ -96,6 +96,36 @@ python manage.py runserver
 
 The API will be accessible at: 📍 ```http://127.0.0.1:8000/api/```
 
+
+## 📡 API Endpoints
+ 
+
+### 🔹 Polls
+
+- All endpoints except vote submission require **admin authentication**.
+- Vote submission requires **participant authentication**.
+
+* `GET /polls/` → Retrieve all polls
+* `POST /polls/` → Create a new poll
+* `GET /polls/{id}/` → Retrieve a poll
+* `PUT /polls/{id}/` → Update a poll
+* `PATCH /polls/{id}/` → Partially update a poll
+* `DELETE /polls/{id}/` → Delete a poll
+* `POST /polls/{id}/cast-vote/` → Submit a vote for a poll
+* `GET /polls/{id}/options/` → Retrieve the list of options for a poll
+* `POST /polls/{id}/options/` → Add a new option to a poll
+* `PATCH /polls/{id}/options/{option_id}/` → Update an option in a poll
+* `DELETE /polls/{id}/options/{option_id}/` → Delete an option in a poll
+* `GET /polls/{id}/results/` → Retrieve the results of a poll
+
+### 🔹 Users (Administrators and Participants)
+
+* `GET /users/` → List all users
+* `POST /users/` → Create a new user
+* `GET /users/{id}/` → Retrieve a user
+* `PUT /users/{id}/` → Update a user
+* `PATCH /users/{id}/` → Partially update a user
+
 ## 📜 API Documentation
 
 The API documentation is available at: 📍```http://127.0.0.1:8000/api/docs/```

@@ -132,4 +132,4 @@ The API documentation is available at: 📍```http://127.0.0.1:8000/api/docs/```
 
 ## Author
 
-👤 **8srael** (https://wwww.github.com/8srael)
+👤 [8srael](https://www.github.com/8srael)

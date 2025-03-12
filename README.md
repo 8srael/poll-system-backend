@@ -99,11 +99,10 @@ The API will be accessible at: 📍 ```http://127.0.0.1:8000/api/```
 
 ## 📡 API Endpoints
  
-
-### 🔹 Polls
-
 - All endpoints except vote submission require **admin authentication**.
 - Vote submission requires **participant authentication**.
+
+### 🔹 Polls
 
 * `GET /polls/` → Retrieve all polls
 * `POST /polls/` → Create a new poll

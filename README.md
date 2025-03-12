@@ -24,8 +24,8 @@ The primary objectives of this backend system are:
 ## 🛠️ Technologies Used  
 
 - **🐍 Django & Django Rest Framework (DRF)** – Backend framework for building APIs.  
-- **🛢️ PostgreSQL** – Relational database for storing polls and votes.  
-- **📜 Swagger (drf-yasg)** – API documentation and testing interface.  
+- **🛢️ PostgreSQL** – Relational database for storing api data.
+- **📜 Swagger (drf-yasg)** – API documentation.  
 
 ---
 

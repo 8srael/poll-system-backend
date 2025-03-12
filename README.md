@@ -94,11 +94,11 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-The API will be accessible at: 📍 ```bash http://127.0.0.1:8000/api/```
+The API will be accessible at: 📍 ```http://127.0.0.1:8000/api/```
 
 ## 📜 API Documentation
 
-The API documentation is available at: ```bash 📍 http://127.0.0.1:8000/api/docs/```
+The API documentation is available at: 📍```http://127.0.0.1:8000/api/docs/```
 
 
 ## Author
